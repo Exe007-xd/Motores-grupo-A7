@@ -15,9 +15,8 @@ public class Mov_Personaje : MonoBehaviour
     [Header("Movimiento")]
     [SerializeField] private float _normalSpeed = 7f;
     [SerializeField] private float _sprintSpeed = 14f;
-
+        
     [Header("Salto")]
-    [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private float _gravity = -9.8f;
     [SerializeField] private float _groundHeight = 0f;
 
