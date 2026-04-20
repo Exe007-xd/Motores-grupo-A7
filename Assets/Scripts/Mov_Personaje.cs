@@ -61,6 +61,7 @@ public class Mov_Personaje : MonoBehaviour
     void Update()
     {
         HandleMovement();
+        HandleLook();
     }
 
 
@@ -103,5 +104,10 @@ public class Mov_Personaje : MonoBehaviour
         }
     }
 
-    
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        _rotate = context.ReadValue<Vector2>().x;
+    }
+
+
 }
