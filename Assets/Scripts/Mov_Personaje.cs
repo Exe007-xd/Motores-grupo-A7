@@ -15,8 +15,9 @@ public class Mov_Personaje : MonoBehaviour
     [Header("Movimiento")]
     [SerializeField] private float _normalSpeed = 7f;
     [SerializeField] private float _sprintSpeed = 14f;
-        
+
     [Header("Salto")]
+    [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private float _gravity = -9.8f;
     [SerializeField] private float _groundHeight = 0f;
 
@@ -61,7 +62,6 @@ public class Mov_Personaje : MonoBehaviour
     void Update()
     {
         HandleMovement();
-        HandleLook();
     }
 
 
@@ -104,10 +104,5 @@ public class Mov_Personaje : MonoBehaviour
         }
     }
 
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        _rotate = context.ReadValue<Vector2>().x;
-    }
-
-
+    
 }
