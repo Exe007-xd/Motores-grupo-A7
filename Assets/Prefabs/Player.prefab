@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 6959453695685096489}
   - component: {fileID: 514255579333927093}
   - component: {fileID: 7286528580685090328}
+  - component: {fileID: 398647508651773830}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -355,6 +356,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 69038139-02c1-48ec-a1f3-1c262803069d
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 398647508651773830}
+        m_TargetAssemblyTypeName: Player_Interact, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 04c5f56c-1f0d-4179-be48-12a2bff91068
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -463,6 +480,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlashLightToggle
   _flashlightLight: {fileID: 6072468794782224729}
   _toggleAction: {fileID: 0}
+--- !u!114 &398647508651773830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758075848044233965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e33bc768fd1c743ab9791e39e07748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Interact
 --- !u!1 &7289640928988532433
 GameObject:
   m_ObjectHideFlags: 0
