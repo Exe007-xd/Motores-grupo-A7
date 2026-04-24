@@ -8,7 +8,9 @@ public class FlashLightToggle : MonoBehaviour
     [SerializeField] private InputActionReference _toggleAction;
 
 
-
+    //---------------------------------
+    //Metodos para togglear la linterna
+    //---------------------------------
     private void OnEnable()
     { 
         _toggleAction.action.performed += OnToggle;

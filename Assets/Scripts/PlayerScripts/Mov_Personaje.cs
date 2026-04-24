@@ -14,7 +14,7 @@ public class Mov_Personaje : MonoBehaviour
 
     [Header("Movimiento")]
     [SerializeField] private float _normalSpeed = 7f;
-    [SerializeField] private float _sprintSpeed = 14f;
+    [SerializeField] private float _sprintSpeed = 10f;
 
     [Header("Gravedad")]
     [SerializeField] private float _gravity = -9.8f;
@@ -38,26 +38,21 @@ public class Mov_Personaje : MonoBehaviour
     private float _verticalVelocity;
   
 
-
-
-
-
-
+    //-------
+    //Metodos
+    //-------
 
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
     }
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         _speed = _normalSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         HandleMovement();
