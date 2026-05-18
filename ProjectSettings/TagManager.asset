@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Distraction
+  - Door
+  - TriggerDoor
+  - Objeto Interactivo
   layers:
   - Default
   - TransparentFX
