@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro; // Requiere TextMeshPro
 
-public class PlayerInteract : MonoBehaviour
+public class PlayerInteractDoors : MonoBehaviour
 {
     [Header("Configuracion")]
     [SerializeField] private KeyCode interactKey = KeyCode.E;
