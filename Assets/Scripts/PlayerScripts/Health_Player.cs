@@ -29,13 +29,21 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (_isDead) return;
         _currentHealth -= damage;
         Debug.Log("Daño =" + damage);
-        GameEvents.OnPlayerDamageHealth(_currentHealth, _maxHealth);
+        GameEvents.OnPlayerHealthChanged(_currentHealth, _maxHealth);
 
 
         if (_currentHealth <= 0)
         {
             Die();
         }
+    }
+
+    public void Heal(int amount)
+    {
+        if (_isDead) return;
+        _currentHealth += amount;
+        _currentHealth = Mathf.Min(_currentHealth + amount, _maxHealth);
+        GameEvents.OnPlayerHealthChanged(_currentHealth, _maxHealth);
     }
    
 

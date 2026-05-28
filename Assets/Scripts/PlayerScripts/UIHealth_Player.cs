@@ -8,13 +8,15 @@ public class UIHealth_Player : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.onPlayerDamageHealth += UpdateHealth;
+        GameEvents.onPlayerHealthChanged += UpdateHealth;
     }
 
     private void OnDisable()
     {
-        GameEvents.onPlayerDamageHealth -= UpdateHealth;
+        GameEvents.onPlayerHealthChanged -= UpdateHealth;
     }
+
+
 
     private void UpdateHealth(int current, int max)
     {
