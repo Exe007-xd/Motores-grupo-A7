@@ -2,41 +2,56 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int _health = 3;
-    SpriteRenderer _spriteRenderer;
+    [SerializeField] private int _maxHealth = 3;
+    private int _currentHealth;
+    
     private static PlayerHealth instance;
     public static PlayerHealth Instance => instance;
 
+    private bool _isDead = false;
+
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+       
         if (instance = null)
         {
             instance = this;
         }
+
+        _currentHealth = _maxHealth;
+
     }
 
     public void GetDamage(int damage)
     {
-        _health -= damage;
-        StartCoroutine(BlinkRed());
-        
-        if (_health <= 0)
+        if (_isDead) return;
+        _currentHealth -= damage;
+        Debug.Log("Daño =" + damage);
+        GameEvents.OnPlayerHealthChanged(_currentHealth, _maxHealth);
+
+
+        if (_currentHealth <= 0)
         {
             Die();
         }
     }
-    private IEnumerator BlinkRed()
+
+    public void Heal(int amount)
     {
-        _spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        _spriteRenderer.color = Color.white;
+        if (_isDead) return;
+        _currentHealth += amount;
+        _currentHealth = Mathf.Min(_currentHealth + amount, _maxHealth);
+        GameEvents.OnPlayerHealthChanged(_currentHealth, _maxHealth);
     }
+   
 
     private void Die()
     {
+        if (_isDead) return;
+        _isDead = true;
+
         SceneManager.LoadScene("Derrota");
     }
 }
