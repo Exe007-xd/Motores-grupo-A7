@@ -4,7 +4,7 @@ using TMPro; // Requiere TextMeshPro
 public class PlayerInteractDoors : MonoBehaviour
 {
     [Header("Configuracion")]
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
+  
     [SerializeField] private LayerMask doorLayer;
 
     [Header("UI (Opcional)")]
@@ -14,12 +14,12 @@ public class PlayerInteractDoors : MonoBehaviour
 
     private void Update()
     {
-        DetectDoor();
+        //DetectDoor();
 
-        if (_nearbyDoor != null && Input.GetKeyDown(interactKey))
-        {
-            _nearbyDoor.Interact();
-        }
+        //if (_nearbyDoor != null && Input.GetKeyDown(interactKey))
+        //{
+        //    _nearbyDoor.Interact();
+        //}
     }
 
     private void DetectDoor()

@@ -13,13 +13,15 @@ public class EnemyPatrol : MonoBehaviour
 
     private float waitCounter;
     private bool waiting;
+    private bool _investigatingNoise;
+    private Vector3 _noisePosition;
 
     void Start()
     {
         navMeshAgent.SetDestination(destinations[currentDestination].transform.position);
     }
 
-  
+
     void Update()
     {
         // =========================
@@ -56,6 +58,20 @@ public class EnemyPatrol : MonoBehaviour
         if (Vector3.Distance(player.transform.position, transform.position) < distanceToFollowPlayer)
         {
             navMeshAgent.SetDestination(player.transform.position);
+            return;
+        }
+        if (_investigatingNoise)
+        {
+            if (!navMeshAgent.pathPending &&
+                navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+            {
+                _investigatingNoise = false;
+
+                navMeshAgent.SetDestination(
+                    destinations[currentDestination].transform.position
+                );
+            }
+
             return;
         }
 
@@ -98,8 +114,24 @@ public class EnemyPatrol : MonoBehaviour
         Gizmos.DrawLine(transform.position, player.transform.position);
     }
 
-    
-   
-    
-    
+    private void OnEnable()
+    {
+        NoiseSystem.OnNoiseMade += InvestigateNoise;
+    }
+
+    private void OnDisable()
+    {
+        NoiseSystem.OnNoiseMade -= InvestigateNoise;
+    }
+
+    private void InvestigateNoise(Vector3 position)
+    {
+        _investigatingNoise = true;
+        _noisePosition = position;
+
+        navMeshAgent.SetDestination(_noisePosition);
+    }
+
+
+
 }

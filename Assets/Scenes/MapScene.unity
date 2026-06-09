@@ -11178,6 +11178,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513351325}
   m_Mesh: {fileID: -259459578787536697, guid: ee289a1bffdd2194da13cf92e235e5f0, type: 3}
+--- !u!20 &530842154 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9218379974548831892, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
+  m_PrefabInstance: {fileID: 706068220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &536290341
 Mesh:
   m_ObjectHideFlags: 0
@@ -15190,6 +15195,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.006
       objectReference: {fileID: 0}
+    - target: {fileID: 398647508651773830, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
+      propertyPath: _playerCamera
+      value: 
+      objectReference: {fileID: 530842154}
     - target: {fileID: 3772270540545358616, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2004
@@ -15273,10 +15282,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4758075848044233965, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1199915330}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
 --- !u!1 &708386271
 GameObject:
@@ -27602,23 +27608,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4758075848044233965, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
   m_PrefabInstance: {fileID: 706068220}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1199915330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199915329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a6d256f20f23446b3ee607670fd168, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
-  interactKey: 101
-  doorLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  promptText: {fileID: 0}
 --- !u!43 &1229724567
 Mesh:
   m_ObjectHideFlags: 0

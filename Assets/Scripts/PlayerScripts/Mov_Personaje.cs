@@ -20,12 +20,13 @@ public class Mov_Personaje : MonoBehaviour
     [SerializeField] private float _gravity = -9.8f;
    
 
-    [Header("Rotación")]
-    [SerializeField] private float _rotateSpeed = 100f;
+   
 
     [Header("Camara: modo hijo")]
     [SerializeField] private Transform _cameraTransform;
-
+    private float _pitch;
+    private Vector2 _look;
+    private float _lookSensitivity = 3f;
 
     //------------------
     //Variables propias
@@ -51,6 +52,8 @@ public class Mov_Personaje : MonoBehaviour
     void Start()
     {
         _speed = _normalSpeed;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -78,8 +81,12 @@ public class Mov_Personaje : MonoBehaviour
 
     private void HandleLook()
     {
-        float mouseX = _rotate * _rotateSpeed * Time.deltaTime;
+        float mouseX = _look.x * _lookSensitivity * Time.deltaTime;
+        float mouseY = _look.y * _lookSensitivity * Time.deltaTime;
         transform.Rotate(Vector3.up * mouseX);
+        _pitch -= mouseY;
+        _pitch = Mathf.Clamp(_pitch, -90f, 90f);
+        _cameraTransform.localRotation = Quaternion.Euler(_pitch, 0f, 0f);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -101,7 +108,8 @@ public class Mov_Personaje : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        _rotate = context.ReadValue<Vector2>().x;
+        
+        _look = context.ReadValue<Vector2>();
     }
 
 }
