@@ -6,15 +6,11 @@ public class BreakableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        NoiseSystem.MakeNoise(transform.position);
+        NoiseSystem.MakeNoise(transform.position, 10f);
 
         if (brokenPrefab != null)
         {
-            Instantiate(
-                brokenPrefab,
-                transform.position,
-                transform.rotation
-            );
+            Instantiate(brokenPrefab,transform.position,transform.rotation);
         }
 
         Destroy(gameObject);

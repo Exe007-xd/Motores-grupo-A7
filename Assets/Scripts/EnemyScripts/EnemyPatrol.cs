@@ -8,6 +8,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private GameObject[] destinations;
     [SerializeField] private float distanceToFollowPlayer = 5f;
     [SerializeField] private float waitTime = 2f;
+    [SerializeField] private float noiseDistance = 20f;
 
     private int currentDestination = 0;
 
@@ -15,6 +16,7 @@ public class EnemyPatrol : MonoBehaviour
     private bool waiting;
     private bool _investigatingNoise;
     private Vector3 _noisePosition;
+    
 
     void Start()
     {
@@ -60,6 +62,9 @@ public class EnemyPatrol : MonoBehaviour
             navMeshAgent.SetDestination(player.transform.position);
             return;
         }
+        // =========================
+        // DETECCIÓN RUIDO
+        // =========================
         if (_investigatingNoise)
         {
             if (!navMeshAgent.pathPending &&
@@ -112,6 +117,10 @@ public class EnemyPatrol : MonoBehaviour
 
         // Línea hacia el jugador
         Gizmos.DrawLine(transform.position, player.transform.position);
+
+        //Radio de detección de ruido
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, noiseDistance);
     }
 
     private void OnEnable()
@@ -124,12 +133,18 @@ public class EnemyPatrol : MonoBehaviour
         NoiseSystem.OnNoiseMade -= InvestigateNoise;
     }
 
-    private void InvestigateNoise(Vector3 position)
+    private void InvestigateNoise( Vector3 position, float radius)
     {
+        float distance =
+            Vector3.Distance(transform.position, position);
+
+        if (distance > radius)
+            return;
+
         _investigatingNoise = true;
         _noisePosition = position;
 
-        navMeshAgent.SetDestination(_noisePosition);
+        navMeshAgent.SetDestination(position);
     }
 
 

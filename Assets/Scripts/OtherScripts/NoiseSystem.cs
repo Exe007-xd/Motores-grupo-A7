@@ -3,10 +3,12 @@ using UnityEngine;
 
 public static class NoiseSystem
 {
-    public static Action<Vector3> OnNoiseMade;
+    public static Action<Vector3, float> OnNoiseMade;
 
-    public static void MakeNoise(Vector3 position)
+    public static void MakeNoise(
+        Vector3 position,
+        float radius)
     {
-        OnNoiseMade?.Invoke(position);
+        OnNoiseMade?.Invoke(position, radius);
     }
 }
