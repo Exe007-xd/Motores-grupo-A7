@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1660429879425751954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7199988271168956631}
+  m_Layer: 0
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7199988271168956631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660429879425751954}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.229}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 357066252054628165}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4360388735873274434
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +263,7 @@ GameObject:
   - component: {fileID: 6959453695685096489}
   - component: {fileID: 7286528580685090328}
   - component: {fileID: 398647508651773830}
+  - component: {fileID: 5306194042154173406}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -387,6 +419,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b003a960-f070-4fe3-9a76-dee6f4013a54
     m_ActionName: 'Player/Sprint[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5306194042154173406}
+        m_TargetAssemblyTypeName: Throwing_Player, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 71cfbf50-8dff-452e-b87a-0a8c3b57ec80
+    m_ActionName: 'Player/ThrowObject[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -407,7 +455,6 @@ MonoBehaviour:
   _normalSpeed: 7
   _sprintSpeed: 14
   _gravity: -9.8
-  _rotateSpeed: 100
   _cameraTransform: {fileID: 357066252054628165}
 --- !u!212 &6959453695685096489
 SpriteRenderer:
@@ -494,6 +541,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e33bc768fd1c743ab9791e39e07748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Interact
+  _playerCamera: {fileID: 9218379974548831892}
+--- !u!114 &5306194042154173406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758075848044233965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9367ebd19bc2e24887f416049cf6b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Throwing_Player
+  cam: {fileID: 357066252054628165}
+  attackPoint: {fileID: 7199988271168956631}
+  projectilePrefab: {fileID: 3292087051801437485, guid: 9cadd62d4c4d0ef4fba3c03d035b685b, type: 3}
+  _throwForce: 10
 --- !u!1 &7289640928988532433
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +589,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0.13, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7199988271168956631}
   m_Father: {fileID: 4002532158306520760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &9218379974548831892
