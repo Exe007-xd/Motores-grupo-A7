@@ -5626,7 +5626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4bff0eaeca2c9f04c884c4e428c1c0a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4bff0eaeca2c9f04c884c4e428c1c0a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5832,7 +5832,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
-  m_Height: 2
+  m_Height: 2.3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &255211171
