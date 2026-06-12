@@ -15478,7 +15478,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4758075848044233965, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1199915330}
   m_SourcePrefab: {fileID: 100100000, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
 --- !u!1 &708386271
 GameObject:
@@ -27519,6 +27522,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4758075848044233965, guid: 841f120bb9835624ea9966d6c5d58785, type: 3}
   m_PrefabInstance: {fileID: 706068220}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1199915330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199915329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19d81463ea65de4d8e1f81b0c1a75fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!43 &1229724567
 Mesh:
   m_ObjectHideFlags: 0
@@ -48381,7 +48400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1641961146011164288, guid: 56e0e283e767e9542a2f7e2939652325, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1702986028625600549, guid: 56e0e283e767e9542a2f7e2939652325, type: 3}
       propertyPath: m_Mesh
