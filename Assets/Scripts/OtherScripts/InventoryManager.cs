@@ -5,6 +5,10 @@ public class InventoryManager : MonoBehaviour
 {
     // Array fijo de 3 espacios
     public ItemSO[] items = new ItemSO[3];
+    public static InventoryManager Instance { get; private set; }
+
+   
+
 
     public bool AddItem(ItemSO newItem)
     {
@@ -20,5 +24,16 @@ public class InventoryManager : MonoBehaviour
         }
         Debug.Log("Inventario lleno");
         return false; // Inventario lleno
+    }
+
+    public bool HasItem(ItemSO item)
+    {
+        foreach (ItemSO inventoryItem in items)
+        {
+            if (inventoryItem == item)
+                return true;
+        }
+
+        return false;
     }
 }

@@ -10,5 +10,28 @@ public static class GameEvents
         onPlayerHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
-  
+    public static Action onRoomTriggered;
+        public static void OnRoomTriggered() 
+        {
+            onRoomTriggered?.Invoke();
+        }
+
+    public static Action onStartCrowbarQTE;
+
+    public static void OnStartCrowbarQTE()
+    {
+        onStartCrowbarQTE?.Invoke();
+    }
+
+    public static Action onCrowbarQTESuccess;
+    public static void OnCrowbarQTESuccess()
+    {
+        onCrowbarQTESuccess?.Invoke();
+    }
+
+    public static Action onCrowbarQTEFailure;
+    public static void OnCrowbarQTEFailure()
+    {
+        onCrowbarQTEFailure?.Invoke();
+    }
 }
